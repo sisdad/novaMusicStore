@@ -1,0 +1,219 @@
+.admin-navbar {
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 25px;
+
+    background:#111;
+
+    color:white;
+
+    box-sizing:border-box;
+
+}
+
+
+
+
+.navbar-brand {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+
+.music-logo {
+
+    font-size:35px;
+
+}
+
+
+
+.navbar-brand h2 {
+
+    margin:0;
+
+    font-size:22px;
+
+}
+
+
+
+.navbar-brand span {
+
+    font-size:13px;
+
+    color:#aaa;
+
+}
+
+
+
+
+
+.navbar-menu {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+
+
+.navbar-menu a,
+.logout-btn {
+
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    border:none;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+
+
+.navbar-menu a:hover,
+.navbar-menu .active {
+
+
+    background:#333;
+
+}
+
+
+
+
+
+.menu-toggle {
+
+
+    display:none;
+
+    font-size:30px;
+
+    color:white;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+
+@media(max-width:768px){
+
+
+
+    .admin-navbar {
+
+        flex-wrap:wrap;
+
+    }
+
+
+
+
+
+    .menu-toggle {
+
+        display:block;
+
+    }
+
+
+
+
+
+    .navbar-menu {
+
+
+        display:none;
+
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:10px;
+
+        margin-top:15px;
+
+        padding:15px 0;
+
+        background:#111;
+
+    }
+
+
+
+
+
+    .navbar-menu.open {
+
+
+        display:flex;
+
+
+    }
+
+
+
+
+
+
+    .navbar-menu a,
+    .logout-btn {
+
+
+        width:90%;
+
+        text-align:center;
+
+        background:#222;
+
+    }
+
+
+
+
+}
