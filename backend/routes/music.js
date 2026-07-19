@@ -15,45 +15,41 @@ const db = require("../config/db");
 
 const storage = multer.diskStorage({
 
-    destination:(req,file,cb)=>{
+    destination: (req, file, cb) => {
 
-        if(file.fieldname==="music"){
+        if (file.fieldname === "music_file") {
 
-            cb(null,"uploads/music");
+            cb(null, "uploads/music");
 
         }
 
-        else if(file.fieldname==="cover"){
+        else if (file.fieldname === "cover_image") {
 
-            cb(null,"uploads/covers");
+            cb(null, "uploads/covers");
+
+        }
+
+        else {
+
+            cb(new Error("Unknown field: " + file.fieldname));
 
         }
 
     },
 
-
-    filename:(req,file,cb)=>{
-
+    filename: (req, file, cb) => {
 
         const filename =
-        Date.now()
-        +
-        "-"
-        +
-        Math.round(Math.random()*1000000)
-        +
-        path.extname(file.originalname);
+            Date.now() +
+            "-" +
+            Math.round(Math.random() * 1000000) +
+            path.extname(file.originalname);
 
-
-        cb(null,filename);
-
+        cb(null, filename);
 
     }
 
-
 });
-
-
 
 const upload = multer({
     storage
@@ -75,17 +71,14 @@ verifyToken,
 
 
 upload.fields([
-
-{
-    name:"music",
-    maxCount:1
-},
-
-{
-    name:"cover",
-    maxCount:1
-}
-
+    {
+        name: "music_file",
+        maxCount: 1
+    },
+    {
+        name: "cover_image",
+        maxCount: 1
+    }
 ]),
 
 
@@ -128,7 +121,7 @@ message:"Title and Artist are required."
 
 
 
-if(!req.files || !req.files.music){
+if(!req.files || !req.files.music_file){
 
 
 return res.status(400).json({
@@ -146,10 +139,8 @@ message:"Music file is required."
 
 
 const musicFile =
-
-"uploads/music/"
-+
-req.files.music[0].filename;
+    "uploads/music/" +
+    req.files.music_file[0].filename;
 
 
 
@@ -157,15 +148,11 @@ let coverImage=null;
 
 
 
-if(req.files.cover){
+if (req.files.cover_image) {
 
-
-coverImage=
-
-"uploads/covers/"
-+
-req.files.cover[0].filename;
-
+    coverImage =
+        "uploads/covers/" +
+        req.files.cover_image[0].filename;
 
 }
 

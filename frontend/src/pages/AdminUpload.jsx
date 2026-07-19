@@ -109,13 +109,7 @@ form.lyrics
 
 
 
-data.append(
-
-"music",
-
-music
-
-);
+data.append("music_file", music);
 
 
 
@@ -124,14 +118,7 @@ music
 if(cover){
 
 
-data.append(
-
-"cover",
-
-cover
-
-);
-
+data.append("cover_image", cover);
 
 }
 
